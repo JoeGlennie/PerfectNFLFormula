@@ -385,4 +385,242 @@ Against The Spread Percentage: 49.32%
 pd.set_option('display.max_columns', 500)
 df.head()
 
+df.columns.values
 
+array(['schedule_date', 'schedule_season', 'schedule_week',
+       'schedule_playoff', 'team_home', 'score_home', 'score_away',
+       'team_away', 'team_favorite_id', 'spread_favorite',
+       'over_under_line', 'stadium', 'stadium_neutral',
+       'weather_temperature', 'weather_wind_mph', 'weather_humidity',
+       'weather_detail', 'home_favorite', 'away_favorite', 'over',
+       'team_away_current_win_pct', 'team_home_current_win_pct',
+       'team_home_lastseason_win_pct', 'team_away_lastseason_win_pct',
+       'team_home_division', 'team_away_division', 'division_game',
+       'elo_prob1', 'elo_prob2', 'result'], dtype=object)
+Training data: [2001-2015] (15 seasons) - Validation will be part of the training set
+Test data: [2016-2018] (3 seasons)
+# training and testing data
+train = df.copy()
+test = df.copy()
+train = train.loc[train['schedule_season'] < 2016]
+test = test.loc[test['schedule_season'] > 2015]
+
+X_train = train[['schedule_week', 'spread_favorite', 'over_under_line', 'home_favorite','team_away_current_win_pct', 'team_home_current_win_pct', 
+                 'team_home_lastseason_win_pct', 'team_away_lastseason_win_pct', 'division_game', 'elo_prob1']]
+y_train = train['result']
+
+X_test = test[['schedule_week', 'spread_favorite', 'over_under_line', 'home_favorite','team_away_current_win_pct', 'team_home_current_win_pct', 
+               'team_home_lastseason_win_pct', 'team_away_lastseason_win_pct', 'division_game', 'elo_prob1']]
+y_test = test['result']
+# prepare models
+models = []
+
+# Classifiers to use in Voting
+boost = xgb.XGBClassifier()
+dtc = DecisionTreeClassifier(max_depth=5, criterion='entropy')
+lrg = LogisticRegression(solver='liblinear')
+vote = VotingClassifier(estimators=[('boost', boost), ('dtc', dtc), ('lrg', lrg)], voting='soft')
+
+models.append(('LRG', LogisticRegression(solver='liblinear', max_iter=250)))
+models.append(('KNB', KNeighborsClassifier()))
+models.append(('GNB', GaussianNB()))
+models.append(('XGB', xgb.XGBClassifier(random_state=0)))
+models.append(('RFC', RandomForestClassifier(random_state=0, n_estimators=100)))
+models.append(('DTC', DecisionTreeClassifier(random_state=0, criterion='entropy', max_depth=5)))
+models.append(('SVC', LinearSVC(random_state=0)))
+models.append(('VOTE', VotingClassifier(estimators=[('boost', boost), ('dtc', dtc), ('lrg', lrg)], voting='soft')))
+models.append(('CCV', CCV(vote, method='isotonic', cv=3)))
+models.append(('MLP', MLPClassifier()))
+models.append(('ADA', AdaBoostClassifier(random_state=0)))
+
+# evaluate each model by average of roc auc 
+results_dict = {}
+
+for name, m in models:
+    kfold = model_selection.KFold(n_splits=5, random_state=0) 
+    cv_results = model_selection.cross_val_score(m, X_train, y_train, cv=kfold, scoring = 'roc_auc') # or 'accuracy'
+    results_dict.update({name: "%f" % cv_results.mean()})
+
+# results_dict
+sorted(((v,k) for k,v in results_dict.items()), reverse=True)
+
+Fit best model to all of training set
+vote = VotingClassifier(estimators=[('boost', boost), ('dtc', dtc), ('lrg', lrg)], voting='soft')
+model = vote.fit(X_train, y_train)
+# predict probabilities
+predicted = model.predict_proba(X_test)[:,1]
+# predict home team win or lose (0/1)
+predictions = model.predict(X_test)
+cm = metrics.confusion_matrix(y_test, predictions)
+
+plt.figure(figsize=(5.5,4))
+sns.heatmap(cm, annot=True, fmt="g")
+plt.title('VotingClassifier \nAccuracy:{0:.3f}'.format(model.score(X_test, y_test)))
+plt.ylabel('True label')
+plt.xlabel('Predicted label')
+plt.show()
+
+# calculate the fpr and tpr for all thresholds of the classification
+fpr, tpr, threshold = roc_curve(y_test, predictions)
+roc_auc = auc(fpr, tpr)
+
+# method I: plt
+
+plt.title('Receiver Operating Characteristic')
+plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
+plt.legend(loc = 'lower right')
+plt.plot([0, 1], [0, 1],'r--')
+plt.xlim([0, 1])
+plt.ylim([0, 1])
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.show()
+
+def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
+                        n_jobs=None, train_sizes=np.linspace(.1, 1.0, 5)):
+    """
+    Generate a simple plot of the test and training learning curve.
+
+    Parameters
+    ----------
+    estimator : object type that implements the "fit" and "predict" methods
+        An object of that type which is cloned for each validation.
+
+    title : string
+        Title for the chart.
+
+    X : array-like, shape (n_samples, n_features)
+        Training vector, where n_samples is the number of samples and
+        n_features is the number of features.
+
+    y : array-like, shape (n_samples) or (n_samples, n_features), optional
+        Target relative to X for classification or regression;
+        None for unsupervised learning.
+
+    ylim : tuple, shape (ymin, ymax), optional
+        Defines minimum and maximum yvalues plotted.
+
+    cv : int, cross-validation generator or an iterable, optional
+        Determines the cross-validation splitting strategy.
+        Possible inputs for cv are:
+          - None, to use the default 3-fold cross-validation,
+          - integer, to specify the number of folds.
+          - :term:`CV splitter`,
+          - An iterable yielding (train, test) splits as arrays of indices.
+
+        For integer/None inputs, if ``y`` is binary or multiclass,
+        :class:`StratifiedKFold` used. If the estimator is not a classifier
+        or if ``y`` is neither binary nor multiclass, :class:`KFold` is used.
+
+        Refer :ref:`User Guide <cross_validation>` for the various
+        cross-validators that can be used here.
+
+    n_jobs : int or None, optional (default=None)
+        Number of jobs to run in parallel.
+        ``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+        ``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+        for more details.
+
+    train_sizes : array-like, shape (n_ticks,), dtype float or int
+        Relative or absolute numbers of training examples that will be used to
+        generate the learning curve. If the dtype is float, it is regarded as a
+        fraction of the maximum size of the training set (that is determined
+        by the selected validation method), i.e. it has to be within (0, 1].
+        Otherwise it is interpreted as absolute sizes of the training sets.
+        Note that for classification the number of samples usually have to
+        be big enough to contain at least one sample from each class.
+        (default: np.linspace(0.1, 1.0, 5))
+    """
+    plt.figure()
+    plt.title(title)
+    if ylim is not None:
+        plt.ylim(*ylim)
+    plt.xlabel("Training examples")
+    plt.ylabel("Score")
+    train_sizes, train_scores, test_scores = learning_curve(
+        estimator, X, y, cv=cv, n_jobs=n_jobs, train_sizes=train_sizes)
+    train_scores_mean = np.mean(train_scores, axis=1)
+    train_scores_std = np.std(train_scores, axis=1)
+    test_scores_mean = np.mean(test_scores, axis=1)
+    test_scores_std = np.std(test_scores, axis=1)
+    plt.grid()
+
+    plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
+                     train_scores_mean + train_scores_std, alpha=0.1,
+                     color="r")
+    plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
+                     test_scores_mean + test_scores_std, alpha=0.1, color="g")
+    plt.plot(train_sizes, train_scores_mean, 'o-', color="r",
+             label="Training score")
+    plt.plot(train_sizes, test_scores_mean, 'o-', color="g",
+             label="Cross-validation score")
+
+    plt.legend(loc="best")
+    return plt
+title = "Learning Curves (Voting Classifier)"
+# Cross validation with 100 iterations to get smoother mean test and train
+# score curves, each time with 20% data randomly selected as a validation set.
+cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
+vote = VotingClassifier(estimators=[('boost', boost), ('dtc', dtc), ('lrg', lrg)], voting='soft')
+plot_learning_curve(vote, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
+
+title = "Learning Curves (Logistic Regression)"
+cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
+lrg = LogisticRegression(solver='liblinear')
+plot_learning_curve(lrg, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
+
+title = "Learning Curves (Decision Tree)"
+cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
+dtc = DecisionTreeClassifier(max_depth=5, criterion='entropy')
+plot_learning_curve(dtc, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
+
+title = "Learning Curves (XGBoost)"
+cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
+boost = xgb.XGBClassifier()
+plot_learning_curve(boost, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
+
+plt.show()
+
+test.loc[:,'hm_prob'] = predicted
+test = test[['schedule_season', 'schedule_week', 'team_home', 'team_away', 'elo_prob1', 'hm_prob', 'result']]
+# calulate bets won (only make a bet when probability is greater than / equal to 60% or less than / equal to 40%)
+test['my_bet_won'] = (((test.hm_prob >= 0.60) & (test.result == 1)) | ((test.hm_prob <= 0.40) & (test.result == 0))).astype(int)
+test['elo_bet_won'] = (((test.elo_prob1 >= 0.60) & (test.result == 1)) | ((test.elo_prob1 <= 0.40) & (test.result == 0))).astype(int)
+
+# calulate bets lost (only make a bet when probability is greater than / equal to 60% or less than / equal to 40%)
+test['my_bet_lost'] = (((test.hm_prob >= 0.60) & (test.result == 0)) | ((test.hm_prob <= 0.40) & (test.result == 1))).astype(int)
+test['elo_bet_lost'] = (((test.elo_prob1 >= 0.60) & (test.result == 0)) | ((test.elo_prob1 <= 0.40) & (test.result == 1))).astype(int)
+# printing some quick overall results for my model
+print("My Model Win Percentage: " + "{:.4f}".format(test.my_bet_won.sum() / (test.my_bet_lost.sum() + test.my_bet_won.sum())))
+print("Total Number of Bets Won: " + str(test.my_bet_won.sum()))
+print("Total Number of Bets Made: " + str((test.my_bet_lost.sum() + test.my_bet_won.sum())))
+print("Possible Games: " + str(len(test)))
+My Model Win Percentage: 0.7156
+Total Number of Bets Won: 390
+Total Number of Bets Made: 545
+Possible Games: 790
+# printing some quick overall results for fivethirtyeight's ELO model
+print("ELO Model Win Percentage: " + "{:.4f}".format(test.elo_bet_won.sum()/(test.elo_bet_lost.sum() + test.elo_bet_won.sum())))
+print("Total Number of Bets Won: " + str(test.elo_bet_won.sum()))
+print("Total Number of Bets Made: " + str((test.elo_bet_lost.sum() + test.elo_bet_won.sum())))
+print("Possible Games: " + str(len(test)))
+ELO Model Win Percentage: 0.6896
+Total Number of Bets Won: 351
+Total Number of Bets Made: 509
+Possible Games: 790
+Our model beats the ELO model by 2.6%. while making bets on more games.
+
+# creating week by week results
+results_df = test.groupby(['schedule_season', 'schedule_week']).agg({'team_home' : 'count', 'my_bet_won' : 'sum', 
+'elo_bet_won' : 'sum', 'my_bet_lost' : 'sum', 'elo_bet_lost' : 'sum'}).reset_index().rename(columns={'team_home' : 'total_games'})
+
+# counting total bets for my model and the ELO model (prob >= 60% or prob <= 40%)
+results_df['total_bets'] = results_df.my_bet_won + results_df.my_bet_lost
+results_df['elo_total_bets'] = results_df.elo_bet_won + results_df.elo_bet_lost
+
+# creating accuracy columns based on bets made not on total games
+results_df['bet_accuracy'] = round((results_df.my_bet_won / results_df.total_bets) * 100, 2)
+results_df['elo_bet_accuracy'] = round((results_df.elo_bet_won / results_df.elo_total_bets) * 100, 2)
+results_df = results_df[['schedule_season', 'schedule_week', 'bet_accuracy', 'elo_bet_accuracy',
+                         'total_bets', 'elo_total_bets', 'total_games']]
+results_df
