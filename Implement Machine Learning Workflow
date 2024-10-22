@@ -98,11 +98,11 @@ Falcons    30.27                                 27                             
 Texans      21.575                             22.25                                  22                                     +0.425                                       +0.25
 Packers     26.2                               25.25                                  24                                      +2.2                                        +1.25
 
-Chargers    27.475                             23.25
-Cardinals   18.35                              22.25
+Chargers    27.475                             23.25                                  15                                     +12.475                                      +8.25             
+Cardinals   18.35                              22.25                                  17                                     +1.35                                        +5.25
 
-Ravens      29.1                                 26
-Buccaneers  25.35                                22.5
+Ravens      29.1                                 26                                   41                                     -11.9                                        -15
+Buccaneers  25.35                                22.5                                 31                                     -5.65                                        -8.5
 
 October 16, 2024- Since the Jets added Davante Adams a couple days ago, I have added my new projection to the right of my original prediction. 
 
@@ -111,7 +111,7 @@ So far, the only examples I've found online only work with binary outcomes, so I
 9:55 AM ET, October 17, 2024- I updated the Saints output because their two good wide receivers have been ruled out.
 
 It seems the formula is way too simple to be turned into a machine learning project. I noticed that lots of other people already completed machine learning projects to try to do the same thing. I think I would need to import all of the NFL's raw data from the past 100 years to need to complete all 600+ possible steps machine learning may require. 
-                                                                                                                            +43.315                                        +53
+                                                                                                                            +39.59                                        +43
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
