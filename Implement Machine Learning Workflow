@@ -313,10 +313,6 @@ spread_favorite                 4783 non-null float64
 over_under_line                 4783 non-null float64
 stadium                         4783 non-null object
 stadium_neutral                 4783 non-null int64
-weather_temperature             4672 non-null float64
-weather_wind_mph                4672 non-null float64
-weather_humidity                2431 non-null float64
-weather_detail                  1342 non-null object
 home_favorite                   4783 non-null int64
 away_favorite                   4783 non-null int64
 over                            4783 non-null float64
@@ -415,11 +411,6 @@ y_test = test['result']
 # prepare models
 models = []
 
-# Classifiers to use in Voting
-boost = xgb.XGBClassifier()
-dtc = DecisionTreeClassifier(max_depth=5, criterion='entropy')
-lrg = LogisticRegression(solver='liblinear')
-vote = VotingClassifier(estimators=[('boost', boost), ('dtc', dtc), ('lrg', lrg)], voting='soft')
 
 models.append(('LRG', LogisticRegression(solver='liblinear', max_iter=250)))
 models.append(('KNB', KNeighborsClassifier()))
