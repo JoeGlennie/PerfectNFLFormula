@@ -328,17 +328,8 @@ elo_prob2                       4783 non-null float64
 result                          4783 non-null int64
 dtypes: float64(14), int64(8), object(8)
 memory usage: 1.1+ MB
-df.columns.values
-array(['schedule_date', 'schedule_season', 'schedule_week',
-       'schedule_playoff', 'team_home', 'score_home', 'score_away',
-       'team_away', 'team_favorite_id', 'spread_favorite',
-       'over_under_line', 'stadium', 'stadium_neutral',
-       'weather_temperature', 'weather_wind_mph', 'weather_humidity',
-       'weather_detail', 'home_favorite', 'away_favorite', 'over',
-       'team_away_current_win_pct', 'team_home_current_win_pct',
-       'team_home_lastseason_win_pct', 'team_away_lastseason_win_pct',
-       'team_home_division', 'team_away_division', 'division_game',
-       'elo_prob1', 'elo_prob2', 'result'], dtype=object) 
+
+
 
 home_win = "{:.2f}".format((sum((df.result == 1) & (df.stadium_neutral == 0)) / sum(df.stadium_neutral == 0)) * 100)
 # away_win = "{:.2f}".format((sum((df.result == 0) & (df.stadium_neutral == 0)) / len(df)) * 100)
@@ -512,104 +503,3 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
         ``-1`` means using all processors. See :term:`Glossary <n_jobs>`
         for more details.
 
-    train_sizes : array-like, shape (n_ticks,), dtype float or int
-        Relative or absolute numbers of training examples that will be used to
-        generate the learning curve. If the dtype is float, it is regarded as a
-        fraction of the maximum size of the training set (that is determined
-        by the selected validation method), i.e. it has to be within (0, 1].
-        Otherwise it is interpreted as absolute sizes of the training sets.
-        Note that for classification the number of samples usually have to
-        be big enough to contain at least one sample from each class.
-        (default: np.linspace(0.1, 1.0, 5))
-    """
-    plt.figure()
-    plt.title(title)
-    if ylim is not None:
-        plt.ylim(*ylim)
-    plt.xlabel("Training examples")
-    plt.ylabel("Score")
-    train_sizes, train_scores, test_scores = learning_curve(
-        estimator, X, y, cv=cv, n_jobs=n_jobs, train_sizes=train_sizes)
-    train_scores_mean = np.mean(train_scores, axis=1)
-    train_scores_std = np.std(train_scores, axis=1)
-    test_scores_mean = np.mean(test_scores, axis=1)
-    test_scores_std = np.std(test_scores, axis=1)
-    plt.grid()
-
-    plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
-                     train_scores_mean + train_scores_std, alpha=0.1,
-                     color="r")
-    plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
-                     test_scores_mean + test_scores_std, alpha=0.1, color="g")
-    plt.plot(train_sizes, train_scores_mean, 'o-', color="r",
-             label="Training score")
-    plt.plot(train_sizes, test_scores_mean, 'o-', color="g",
-             label="Cross-validation score")
-
-    plt.legend(loc="best")
-    return plt
-title = "Learning Curves (Voting Classifier)"
-# Cross validation with 100 iterations to get smoother mean test and train
-# score curves, each time with 20% data randomly selected as a validation set.
-cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
-vote = VotingClassifier(estimators=[('boost', boost), ('dtc', dtc), ('lrg', lrg)], voting='soft')
-plot_learning_curve(vote, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
-
-title = "Learning Curves (Logistic Regression)"
-cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
-lrg = LogisticRegression(solver='liblinear')
-plot_learning_curve(lrg, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
-
-title = "Learning Curves (Decision Tree)"
-cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
-dtc = DecisionTreeClassifier(max_depth=5, criterion='entropy')
-plot_learning_curve(dtc, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
-
-title = "Learning Curves (XGBoost)"
-cv = ShuffleSplit(n_splits=100, test_size=0.2, random_state=0)
-boost = xgb.XGBClassifier()
-plot_learning_curve(boost, title, X_train, y_train, ylim=(0.6, 1.00), cv=cv, n_jobs=4)
-
-plt.show()
-
-test.loc[:,'hm_prob'] = predicted
-test = test[['schedule_season', 'schedule_week', 'team_home', 'team_away', 'elo_prob1', 'hm_prob', 'result']]
-# calulate bets won (only make a bet when probability is greater than / equal to 60% or less than / equal to 40%)
-test['my_bet_won'] = (((test.hm_prob >= 0.60) & (test.result == 1)) | ((test.hm_prob <= 0.40) & (test.result == 0))).astype(int)
-test['elo_bet_won'] = (((test.elo_prob1 >= 0.60) & (test.result == 1)) | ((test.elo_prob1 <= 0.40) & (test.result == 0))).astype(int)
-
-
-# printing some quick overall results for my model
-print("My Model Win Percentage: " + "{:.4f}".format(test.my_bet_won.sum() / (test.my_bet_lost.sum() + test.my_bet_won.sum())))
-print("Total Number of Bets Won: " + str(test.my_bet_won.sum()))
-print("Total Number of Bets Made: " + str((test.my_bet_lost.sum() + test.my_bet_won.sum())))
-print("Possible Games: " + str(len(test)))
-My Model Win Percentage: 0.7156
-Total Number of Bets Won: 390
-Total Number of Bets Made: 545
-Possible Games: 790
-
-print("ELO Model Win Percentage: " + "{:.4f}".format(test.elo_bet_won.sum()/(test.elo_bet_lost.sum() + test.elo_bet_won.sum())))
-print("Total Number of Bets Won: " + str(test.elo_bet_won.sum()))
-print("Total Number of Bets Made: " + str((test.elo_bet_lost.sum() + test.elo_bet_won.sum())))
-print("Possible Games: " + str(len(test)))
-ELO Model Win Percentage: 0.6896
-Total Number of Bets Won: 351
-Total Number of Bets Made: 509
-Possible Games: 790
-Our model beats the ELO model by 2.6%. while making bets on more games.
-
-
-results_df = test.groupby(['schedule_season', 'schedule_week']).agg({'team_home' : 'count', 'my_bet_won' : 'sum', 
-'elo_bet_won' : 'sum', 'my_bet_lost' : 'sum', 'elo_bet_lost' : 'sum'}).reset_index().rename(columns={'team_home' : 'total_games'})
-
-
-results_df['total_bets'] = results_df.my_bet_won + results_df.my_bet_lost
-results_df['elo_total_bets'] = results_df.elo_bet_won + results_df.elo_bet_lost
-
-
-results_df['bet_accuracy'] = round((results_df.my_bet_won / results_df.total_bets) * 100, 2)
-results_df['elo_bet_accuracy'] = round((results_df.elo_bet_won / results_df.elo_total_bets) * 100, 2)
-results_df = results_df[['schedule_season', 'schedule_week', 'bet_accuracy', 'elo_bet_accuracy',
-                         'total_bets', 'elo_total_bets', 'total_games']]
-results_df
