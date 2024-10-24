@@ -115,7 +115,7 @@ It seems the formula is way too simple to be turned into a machine learning proj
                                                                                                                              +39.59                                        +43
 
 
-
+For the time being, it doesn't seem like my formula is good enough to generate big profits. After each NBA team has played at least five games (so they can establish defensive rankings), I will check if the formula works better with basketball. Based on the margins of error from weeks 6 and 7, my formula barely works better than the NFL Elo model. I'm not going to post all of my predictions for week 8 because the formula forecast a lot of lopsided victories.
 
 
 
