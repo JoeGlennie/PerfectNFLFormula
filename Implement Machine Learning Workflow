@@ -1,4 +1,4 @@
-43First, I will post my formula's predictions for every game in week 6 (October 13-14, 2024). After that, I will post the NFL Elo model's predictions based on the ALC's spreads. I hypothesize that I will need to reduce my formula's reliance on scoring defense rating and increase the weighting for the opponents' coaching staff.
+e43First, I will post my formula's predictions for every game in week 6 (October 13-14, 2024). After that, I will post the NFL Elo model's predictions based on the ALC's spreads. I hypothesize that I will need to reduce my formula's reliance on scoring defense rating and increase the weighting for the opponents' coaching staff.
 
 My formula's predictions                       NFL Elo model                        Actual Results                     Formula Margin of Error                NFL ELO Margin of Error
 
@@ -124,9 +124,9 @@ Through three weeks, I have correctly predicted the winner for 35 of the 43 game
 
 I also used the same formula to make a couple basketball predictions:
 
-Bulls          115.15                        112.5
-Nets           116.65                        114.5
+Bulls          115.15                        112.5                                   112
+Nets           116.65                        114.5                                   120
 
-Pacers         121.15                        118
-Pelicans       117.15                        113.5
+Pacers         121.15                        118                                     118
+Pelicans       117.15                        113.5                                   125
 
