@@ -1,4 +1,4 @@
-e43First, I will post my formula's predictions for every game in week 6 (October 13-14, 2024). After that, I will post the NFL Elo model's predictions based on the ALC's spreads. I hypothesize that I will need to reduce my formula's reliance on scoring defense rating and increase the weighting for the opponents' coaching staff.
+First, I will post my formula's predictions for every game in week 6 (October 13-14, 2024). After that, I will post the NFL Elo model's predictions based on the ALC's spreads. I hypothesize that I will need to reduce my formula's reliance on scoring defense rating and increase the weighting for the opponents' coaching staff.
 
 My formula's predictions                       NFL Elo model                        Actual Results                     Formula Margin of Error                NFL ELO Margin of Error
 
@@ -17,8 +17,8 @@ Giants    25.7         21.7                      22                             
 Steelers  25.55                                  20                                    32                                    -6.45                                   -12
 Raiders   13.425                                 17                                    13                                    +0.425                                  +4.0
 
-Chargers  15.825                                 18.25                                 23                                    +7.175                                  +4.75
-Broncos   14.95                                  17.25                                 16                                    +1.05                                   -1.25
+Chargers  15.825                                 18.25                                 23                                    -7.175                                  +4.75
+Broncos   14.95                                  17.25                                 16                                    -1.05                                   -1.25
 
 Buccaneers 22.15                                 22.75                                 51                                    -28.75                                   -28.25
 Saints     20.275                                19.25                                 27                                    -6.725                                   -7.75
