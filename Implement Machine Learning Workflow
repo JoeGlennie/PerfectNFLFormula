@@ -1,5 +1,7 @@
 First, I will post my formula's predictions for every game in week 6 (October 13-14, 2024). After that, I will post the NFL Elo model's predictions based on the ALC's spreads. I hypothesize that I will need to reduce my formula's reliance on scoring defense rating and increase the weighting for the opponents' coaching staff.
 
+Team Score = NFL Elo score + Coaching Staff(out of 10) + Weather(out of 10)/5 - (33 - opponents scoring defense ranking)/4 - Opponent's coaching staff(out of 10)/2
+
 My formula's predictions                       NFL Elo model                        Actual Results                     Formula Margin of Error                NFL ELO Margin of Error
 
 Browns    18.575                                 16.5                                  16                                    +2.075                                  +0.5
@@ -132,17 +134,66 @@ Pelicans       117.15                        113.5                              
 
 November 2, 2024- It's clear the formula will need to be changed for basketball. I expect the divider for defense rating (4) will need to be lowered.
 
-Celtics        126.5                         120.5
-Hornets        109.85                        110
+Celtics        126.5                         120.5                                   113
+Hornets        109.85                        110                                     103
 
-Grizzlies      112.05                        111.25
-76ers          116.8                         112.25
+Grizzlies      112.05                        111.25                                  124
+76ers          116.8                         112.25                                  107
 
-Kings          127.4                         121.5
-Raptors        112.4                         113.5
+Kings          127.4                         121.5                                   128
+Raptors        112.4                         113.5                                   131
 
-Heat           123.4                          117
-Wizards        105.2                         107.5
+Heat           123.4                          117                                    118
+Wizards        105.2                         107.5                                    98
 
-Timberwolves   112.55                        112.55
-Spurs          112.3                         112.3
+Timberwolves   112.55                        114.25                                  103        
+Spurs          112.3                         110.25                                  113
+
+November 3, 2024- Since DK Metcalf will not be playing later today, so I will be subtracting two points from the Seahawks' projected score. It sounds like Tee Higgins isn't going to play for the Bengals, so I will take two points off the Bengals score.
+
+Rams           26.825                        23.5 
+Seahawks       25.45         23.45           24.5
+
+Texans         20.7          18.7            20.5                                    13                                       +5.7                                         +7.5
+Jets           21.7                          21.5                                    21                                       +0.7                                         +0.7
+
+Cowboys        26.775                        24.5
+Falcons        31.4                          27
+
+Broncos        21.7                          18.25
+Ravens         26.2                          27.75
+
+Raiders        21.4                          19                         
+Bengals        31.65         29.65           27.5
+
+Chargers       23.9                          22
+Browns         18.4                          21.5
+
+Dolphins       17.45                         20.75
+Bills          27.3                          28.25
+
+Patriots       20.8                          15.5
+Titans         23.6                          22
+
+Saints         30.15                         25
+Panthers       19.9                          18
+
+Commanders     24.85                         24
+Giants         19.82                         20.5
+
+Bears          26.6                          22.75
+Cardinals      19.1                          21.75
+
+Jaguars        17.65                         19
+Eagles         31.7                          26.5
+ 
+Lions          26.05                         25.75
+Packers        21.1                          22.25
+
+Colts          21.75                         21
+Vikings        28.5                          26
+
+Buccaneers     14.15                         17.5
+Chiefs         32.15                         26
+
+After reviewing the machine learning course material it sounds like I would have been better off calculating the mean squared error (MSE) instead of the net margin of error.
