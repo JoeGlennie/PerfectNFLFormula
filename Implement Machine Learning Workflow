@@ -164,7 +164,7 @@ Broncos        21.7                          18.25                              
 Ravens         26.2                          27.75                                   41                                       -14.8                                       -13.25
 
 Raiders        21.4                          19                                      24                                       -2.6                                         -5.0
-Bengals        31.65         29.65           27.5                                    41                                       -9.35                                        -13.5
+Bengals        31.65         29.65           27.5                                    41                                       -11.35                                        -13.5
 
 Chargers       23.9                          22                                      27                                       -3.1                                         -5.0
 Browns         18.4                          21.5                                    10                                       +8.4                                         +11.5
@@ -197,4 +197,4 @@ Buccaneers     14.15                         17.5
 Chiefs         32.15                         26
 
 After reviewing the machine learning course material it sounds like I would have been better off calculating the mean squared error (MSE) instead of the net margin of error.
-                                                                                                                             821.75                                       770.5
+                                                                                                                             828.75                                       770.5
