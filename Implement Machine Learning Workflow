@@ -190,11 +190,12 @@ Eagles         31.7          30.7            26.5                               
 Lions          26.05                         25.75                                   24                                       +2.05                                       +1.75
 Packers        21.1                          22.25                                   14                                       +7.1                                        +8.25
 
-Colts          21.75                         21
-Vikings        28.5                          26
+Colts          21.75                         21                                      10                                       +11.75                                       +11
+Vikings        28.5                          26                                      21                                       +7.5                                          +5                 
 
 Buccaneers     14.15                         17.5
 Chiefs         32.15                         26
 
 After reviewing the machine learning course material it sounds like I would have been better off calculating the mean squared error (MSE) instead of the net margin of error.
                                                                                                                              828.75                                       770.5
+ 
