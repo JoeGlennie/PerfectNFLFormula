@@ -202,3 +202,5 @@ After reviewing the machine learning course material it sounds like I would have
 November 4, 2024- Before the Monday night game, the formula has correctly predicted the winner for 47 of the 57 games, which means it's 82.4% accurate. It does a terrible job predicting basketball games, which is extremely disappointing. 
 
 November 5, 2024- After the Monday night game, the formula achieved 82.8% accuracy. So far, it only predicts the correct outcome in 35% of NBA games, so I think I'll need to add several variables and remove the opponent's defesnvie scoring ranking.
+
+November 5, 2024- After reviewing the details of the basketball scores, it seems like the projected totals for each team provided by the ALC were way off the mark. I hope I can find a more accurate source for projections.
