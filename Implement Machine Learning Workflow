@@ -150,7 +150,7 @@ Timberwolves   112.55                        114.25                             
 Spurs          112.3                         110.25                                  113
 
 November 3, 2024- Since DK Metcalf and Noah Fant will not be playing later today, so I will be subtracting two points from the Seahawks' projected score. It sounds like Tee Higgins isn't going to play for the Bengals, so I will take two points off the Bengals score.
-                                                                                                                              MSE                                          MSE                                                               
+                                                                                                                          Margin or Error                            Elo Margin of Error                                                               
 Rams           26.825                        23.5                                    26                                      +0.825                                        -2.5
 Seahawks       25.45         22.95           24.5                                    20                                      +2.95                                         +4.5
 
@@ -197,10 +197,14 @@ Buccaneers     14.15                         17.5                               
 Chiefs         32.15                         26                                      30                                       +2.15                                       -4.0
 
 After reviewing the machine learning course material it sounds like I would have been better off calculating the mean squared error (MSE) instead of the net margin of error.
-                                                                                                                             828.75                                       770.5
- 
+                                                                                                                             1666.78                                     1332.25
+I think it's pretty clear that the NFL Elo model had a lower margin of the error in week 9 than my formula, but I will still calculate the MSE's just in case. The MSE for my formula for week 9 was sqrt((1666.78)/30) = 7.4538
+
+MSE for NFL Elo model is sqrt((1332.25)/30) = 6.6640
+
 November 4, 2024- Before the Monday night game, the formula has correctly predicted the winner for 47 of the 57 games, which means it's 82.4% accurate. It does a terrible job predicting basketball games, which is extremely disappointing. 
 
 November 5, 2024- After the Monday night game, the formula achieved 82.8% accuracy. So far, it only predicts the correct outcome in 35% of NBA games, so I think I'll need to add several variables and remove the opponent's defesnvie scoring ranking.
 
 November 5, 2024- After reviewing the details of the basketball scores, it seems like the projected totals for each team provided by the ALC were way off the mark. I hope I can find a more accurate source for projections.
+For the NBA games on November 6th, I will use the team scores from their last games to see if it leads to far more accurate predictions.
