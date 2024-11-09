@@ -231,8 +231,8 @@ November 6, 2024- This will be the final week I post my predictions for NFL game
 
 Week 10
 
-Bengals        25.1         24.1          23                                       34                                  -9.9                                           -11                            
-Ravens         33.7         31.2         29.5                                      35                                  -3.8                                           -5.5
+Bengals        25.1         24.1           23                                       34                                  -9.9                                           -11                            
+Ravens         33.7         31.2          29.5                                      35                                  -3.8                                           -5.5
 
 Giants         28.7                        24
 Panthers       17.45                      17.5
@@ -278,14 +278,14 @@ November 7, 2024- I updated the Thursday night forecast due to Tee Higgins proba
 
 November 8, 2024- For last night's NBA games, I stopped using the formula and just subtracted points from the oddsmakers' predictions for teams that were playing on back to back nights.
 
-Timberwolves   118.25                   118.25                                     135                     
-Bulls          103.25                   110.25                                     119
+Timberwolves   118.25                   118.25                                     135                                 -16.75
+Bulls          103.25                   110.25                                     119                                 -15.75
 
-Trailblazers   111.5                    111.5                                      105
-Spurs          116                      111                                        118
+Trailblazers   111.5                    111.5                                      105                                  +6.5
+Spurs          111                      116                                        118                                  -7.0
 
-Jazz           110                      110                                        100
-Bucks          119                      119                                        123
+Jazz           110                      110                                        100                                  +10
+Bucks          119                      119                                        123                                  -4.0
 
 I don't need to calculate the margins of error because the Foxsports oddsmakers did an excellent job predicting scores last night. In the future, I will subtract 2 points instead of 5 for teams plaing back to back games and 1 point for travel.
 
@@ -316,9 +316,9 @@ Suns           114.22                  115
 Mavericks      119.3                   117.5
 
 
-Mean_Squared_Error=  
+Mean_Square_Error = [x**2 + x**2 + x**2 + x**2] / 4
 
-
+Average_Mean_Square_Error = sqrt(Mean_Square_Error)
 
 
 
