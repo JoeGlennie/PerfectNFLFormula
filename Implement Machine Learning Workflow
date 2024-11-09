@@ -303,17 +303,17 @@ Bucks          123.4
 
 November 8, 2024- I'm using the formula again with Fox Sports' projections.
 
-Pacers         125.9                   121.5
-Hornets        117.65                  115
+Pacers         125.9                   121.5                                       83                                  +42.9                                          +38.5
+Hornets        117.65                  115                                         103                                +14.65                                           +12
 
-Hawks          112.45                  113
-Pistons        118.2                   114.5
+Hawks          112.45                  113                                         121                                -8.55                                           -8.0
+Pistons        118.2                   114.5                                       122                                -3.8                                            -7.5
 
-Bucks          109.58                  108.5
-Knicks         117.33                  115
+Bucks          109.58                  108.5                                       94                                 +15.58                                          +14.5
+Knicks         117.33                  115                                         116                                +1.33                                           -1.0
 
-Suns           114.22                  115
-Mavericks      119.3                   117.5
+Suns           114.22                  115                                         114                                +0.22                                           +1.0
+Mavericks      119.3                   117.5                                       113                                +6.3                                            +4.5
 
 
 Mean_Square_Error = [x**2 + x**2 + x**2 + x**2] / 4
