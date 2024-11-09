@@ -244,7 +244,7 @@ Patriots       14.7                        16
 Bears          23.7                       22.5
 
 Steelers       22.4                       21.5
-Commanders     21.15                       24
+Commanders     21.15        19.65          24
 
 Titans         12.55                      15.25
 Chargers       28.05                      22.75
@@ -321,6 +321,8 @@ Mean_Square_Error = [x**2 + x**2 + x**2 + x**2] / 4
 Average_Mean_Square_Error = sqrt(Mean_Square_Error)
 
 November 8, 2024- The results above show the formula is still way off with basketball predictions. I will look for variables that are more closely connected to total points scored.
+
+November 9, 2024- I updated the Commanders score because Brian Robinson Jr. won't be playing on Sunday.
 
 
 
