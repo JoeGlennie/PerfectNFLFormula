@@ -323,6 +323,24 @@ Average_Mean_Square_Error = sqrt(Mean_Square_Error)
 November 8, 2024- The results above show the formula is still way off with basketball predictions. I will look for variables that are more closely connected to total points scored.
 
 November 9, 2024- I updated the Commanders score because Brian Robinson Jr. won't be playing on Sunday.
+I'm completely lost wih basketball, so I'll start from scratch. For today, I will use the following formula: 
+
+Team_Points = Points_Per_Game + Team_Field_Goal_Made_Percentage - Opponent_Field_Goal_Made_Percentage
+
+Jazz           99.8                    112.5
+Spurs         110.4                    119.0
+
+Nets           106                     104.25
+Cavaliers      128                     117.25
+
+Bulls          112.3                   117.25
+Hawks          117.8                   119.25
+
+Raptors        118.7                   109.5
+Clippers       108.2                   116.0
+
+I subtracted 2 points from the Cavaliers total score because they are playing back to back games. I used Fox Sports's predcitions for comparison. I really doubt the Raptors are going to beat the Clippers by 10, but we'll see.
+
 
 
 
