@@ -320,7 +320,7 @@ Mean_Square_Error = [x**2 + x**2 + x**2 + x**2] / 4
 
 Average_Mean_Square_Error = sqrt(Mean_Square_Error)
 
-
+November 8, 2024- The results above show the formula is still way off with basketball predictions. I will look for variables that are more closely connected to total points scored.
 
 
 
