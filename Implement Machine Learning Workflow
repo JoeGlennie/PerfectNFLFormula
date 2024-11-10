@@ -327,8 +327,8 @@ I'm completely lost wih basketball, so I'll start from scratch. For today, I wil
 
 Team_Points = Points_Per_Game + Team_Field_Goal_Made_Percentage - Opponent_Field_Goal_Made_Percentage
 
-Jazz           99.8                    112.5
-Spurs         110.4                    119.0
+Jazz           99.8                    112.5                                      111
+Spurs         110.4                    119.0                                      110
 
 Nets           106                     104.25
 Cavaliers      128                     117.25
