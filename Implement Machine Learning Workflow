@@ -1,6 +1,6 @@
 First, I will post my formula's predictions for every game in week 6 (October 13-14, 2024). After that, I will post the NFL Elo model's predictions based on the ALC's spreads. I hypothesize that I will need to reduce my formula's reliance on scoring defense rating and increase the weighting for the opponents' coaching staff.
 
-Team Score = NFL Elo score + Coaching Staff(out of 10) + Weather(out of 10)/5 - (33 - opponents scoring defense ranking)/4 - Opponent's coaching staff(out of 10)/2
+Team_Score = NFL_Elo_score + Coaching_Staff(out of 10) + Weather(out of 10)/5 - (33 - opponents scoring defense ranking)/4 - Opponent's_coaching_staff(out of 10)/2
 
 My formula's predictions                       NFL Elo model                        Actual Results                     Formula Margin of Error                NFL ELO Margin of Error
 
@@ -45,9 +45,11 @@ Cowboys    24.6                                  25.5                           
 
 October 13, 2024, 10:47 AM EST- Since the Giants' top wide receiver and running back will not be playing on Sunday, I believe the oddsmakers' prediction will be more accurate than my own. 
 
+
+
 For this week's analysis, I will include the outliers. In future weeks, I may remove them.                               Margin of Error                           Margin of Error
 
-                                                                                                                            -36.7                                     -56.75
+                                                                                                                            -36.7                                      -56.75
 
 I don't think calculating the net margin of error that way is helpful, so I also calculated the total margins of error.
                                                                                                                             195.40                                      199.75           
@@ -262,7 +264,7 @@ Bills          26.1                       25
 Colts          19.6         18.6          21
 
 Vikings        30                         25
-Jaguars        21.57                      22
+Jaguars        21.57        19.57         22
 
 Eagles         29.6                      23.75
 Cowboys        17.47                     18.25
