@@ -278,6 +278,8 @@ Buccaneers     24.7                      23.25                                  
 
 November 7, 2024- I updated the Thursday night forecast due to Tee Higgins probable absence, Likely's absence, and Lamar Jackson's knee issue.
 
+November 10, 2024- I think it's pretty obvious the Elo model did a much better job predicting scores this week, so I won't bother calculating Mean Squared Error.
+
 November 8, 2024- For last night's NBA games, I stopped using the formula and just subtracted points from the oddsmakers' predictions for teams that were playing on back to back nights.
 
 Timberwolves   118.25                   118.25                                     135                                 -16.75
