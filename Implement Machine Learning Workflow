@@ -254,8 +254,8 @@ Chargers       28.05                      22.75                                 
 Jets           22.44                      22.5                                       6                                  +16.44                                         +16.5             
 Cardinals      24.44                      23.5                                      31                                  -6.56                                          -7.5
 
-Lions          27.26                      25.75
-Texans         21.31                      22.75
+Lions          27.26                      25.75                                     26                                  +1.26                                          -0.25
+Texans         21.31                      22.75                                     23                                  -1.69                                          -0.25
 
 Dolphins       25.925                     23.75
 Rams           29.3                       26.25
@@ -279,6 +279,8 @@ Buccaneers     24.7                      23.25                                  
 November 7, 2024- I updated the Thursday night forecast due to Tee Higgins probable absence, Likely's absence, and Lamar Jackson's knee issue.
 
 November 10, 2024- I think it's pretty obvious the Elo model did a much better job predicting scores this week, so I won't bother calculating Mean Squared Error.
+
+November 11, 2024- Next week, with Proline, I will stay away from games involving Chicago, New Orleans, Carolina, and Arizona because they have been very unpredictable. 
 
 November 8, 2024- For last night's NBA games, I stopped using the formula and just subtracted points from the oddsmakers' predictions for teams that were playing on back to back nights.
 
@@ -345,7 +347,7 @@ Clippers       108.2                   116.0                                    
 
 I subtracted 2 points from the Cavaliers total score because they are playing back to back games. I used Fox Sports's predcitions for comparison. I really doubt the Raptors are going to beat the Clippers by 10, but we'll see.
 
-November 10, 2024- For the time being, I'm going to stop picking basketball games since any formula I create has is at most 40% accurate.
+November 10, 2024- For the time being, I'm going to stop picking basketball games since any formula I create is at most 40% accurate.
 
 
 
