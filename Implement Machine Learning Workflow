@@ -462,7 +462,7 @@ GB            24.7        27.7         24                                       
 Phi           29.05       27.55       25.75                                      37
 LAR           22.4                    22.75                                      20
 
-Bal            24.55       25.95       26
+Bal            24.55       25.55       26
 LAC            27.3   or   25.3        24
 
 Dal            18.25   or 13.24        17.5                                      34
@@ -512,3 +512,12 @@ SF             31.57   or 28.57         27.25                                   
 
 KC             22.17                    20.75                                     *21
 Buf            20.55                    24.25                                      30
+
+November 25, 2024- The formula has dropped below 80% accuracy, so I'm not going to post any more predictions unless someone leaves a comment about how to improve the formula. 
+
+Conclusions
+
+1. The math used in the final iteration of the formula was way too simple to convert to a machine learning analysis
+2. I did not learn much about computer programming
+3. It doesn't seem like anyone looked at this page 
+4. In the future, if I want to have any chance of turning a profit, I will need to avoid the games involving the most inconsistent teams mentioned above in both the NBA and NFL.
