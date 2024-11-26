@@ -515,7 +515,7 @@ Buf            20.55                    24.25                                   
 
 November 25, 2024- The formula has dropped below 80% accuracy, so I'm not going to post any more predictions unless someone leaves a comment about how to improve the formula. 
 
-Conclusions
+Conclusions:
 
 1. The math used in the final iteration of the formula was way too simple to convert to a machine learning analysis
 2. I did not learn much about computer programming
