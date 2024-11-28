@@ -521,3 +521,7 @@ Conclusions:
 2. I did not learn much about computer programming
 3. It doesn't seem like anyone looked at this page 
 4. In the future, if I want to have any chance of turning a profit, I will need to avoid the games involving the most inconsistent teams mentioned above in both the NBA and NFL.
+
+
+predicted_home_score = new_game.loc[0, 'HomePossessions'] * 0.5 * (new_game.loc[0, 'HomeFieldGoalPercentage'] + new_game.loc[0, 'HomeThreePointPercentage'] / 3) + new_game.loc[0, 'HomeFreeThrowPercentage'] * new_game.loc[0, 'HomeFreeThrowsAttempted']
+predicted_away_score = new_game.loc[0, 'AwayPossessions'] * 0.5 * (new_game.loc[0, 'AwayFieldGoalPercentage'] + new_game.loc[0, 'AwayThreePointPercentage'] / 3) + new_game.loc[0, 'AwayFreeThrowPercentage'] * new_game.loc[0, 'AwayFreeThrowsAttempted']
