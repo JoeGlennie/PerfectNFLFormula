@@ -525,3 +525,54 @@ Conclusions:
 
 predicted_home_score = new_game.loc[0, 'HomePossessions'] * 0.5 * (new_game.loc[0, 'HomeFieldGoalPercentage'] + new_game.loc[0, 'HomeThreePointPercentage'] / 3) + new_game.loc[0, 'HomeFreeThrowPercentage'] * new_game.loc[0, 'HomeFreeThrowsAttempted']
 predicted_away_score = new_game.loc[0, 'AwayPossessions'] * 0.5 * (new_game.loc[0, 'AwayFieldGoalPercentage'] + new_game.loc[0, 'AwayThreePointPercentage'] / 3) + new_game.loc[0, 'AwayFreeThrowPercentage'] * new_game.loc[0, 'AwayFreeThrowsAttempted']
+
+
+Week 13
+
+Chi           15.05                    19                                   20
+Det           29.7                    29.5                                  23
+
+NYG           21.6                     17
+Dal           21.7                    20.5
+
+Mia           20.8                   21.75
+GB            24.2                   25.25
+
+LV            12.65                    15
+KC            33.5                    27.5
+
+Ari           17.2                     19
+Min           26.15                   25.5
+
+Hou           29.1                     24
+Jac           20.5                    19.5
+
+Ind           23.7                    23.7
+NE            21.2                    21.2
+
+Pit           26.82                   22
+Cin           22.7                    25
+
+Sea           21.2                    20
+NYJ          19.95                   21.5
+
+Ten           19.2                  18.75
+Was          29.95                  25.75
+
+TB            32.65                 27.25
+Car           22.2                  19.25
+
+LAC           26.9  or  23.9        23.25
+Atl           21.15                 24.25
+ 
+LAR           28.45                 25
+NO            26.65                 24
+
+Phi           26.95 or  25.45       24
+Bal           26.05                 27
+
+SF            17.65                18.75
+Buf           28.25                25.75
+
+Cle           14.75                 18
+Den            27                   24
