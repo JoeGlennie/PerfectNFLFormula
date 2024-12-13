@@ -633,53 +633,53 @@ December 8, 2024- There are still some running backs and wide receivers that are
 
 Week 15
 
-LAR           26.35                23                                       12
-SF            28.85               25.5                                       6
+LAR           26.35   28.35             23                                       12
+SF            28.85   26.85            25.5                                       6
 
-Bal           30.2                 28
-NYG           16.45               15.5
+Bal           30.2    29.2              28
+NYG           16.45                    15.5
 
-Mia           22.6               22.25
-Hou          26.775              25.25
+Mia           22.6                     22.25
+Hou          26.775   25.275           25.25
 
-NYJ          23.75               21.75               
-Jac          21.25               18.75
+NYJ          23.75    22.75           21.75               
+Jac          21.25    22.25           18.75
 
-Was          27.13                25.5
-NO           18.25                 18 
+Was          27.13    25.13            25.5
+NO           18.25                      18 
 
-Buf           24.77               26.75
-Det           27.9                28.25
+Buf           24.77                    26.75
+Det           27.9    26.9             28.25
 
-Ind           16.75               19.5
-Den           26.25               24.5
+Ind           16.75   15.75            19.5
+Den           26.25   27.25            24.5
 
-NE            21.6                20.75
-Ari           27.1                25.25
+NE            21.6                     20.75
+Ari           27.1    25.1             25.25
 
-Pit           16.82               18.5
-Phi           21.95               23.5
+Pit           16.82                    18.5
+Phi           21.95   22.95            23.5
 
-Chi           15.05               18.25    
-Min           26.05               25.25
+Chi           15.05     14.05         18.25    
+Min           26.05     25.05          25.25
 
-Atl           28.2                23.5
-LV            23.7                 21
+Atl           28.2      26.2           23.5
+LV            23.7      23.7            21
 
-Dal           26.15               21.25
-Car           27.65               22.25
+Dal           26.15     27.15          21.25
+Car           27.65     28.65          22.25
 
-Cin           29.9                25.5
-Ten           24.4                 21
+Cin           29.9                    25.5
+Ten           24.4      23.4           21
 
-KC            29.8                24.5
-Cle           18.05               20.5
+KC            29.8      27.8          24.5
+Cle           18.05                   20.5
 
-GB            22.75                23
-Sea           22.95                23
+GB            22.75     23.75           23
+Sea           22.95     24.95           23
 
-TB            19.3                21.5
-LAC           27.55               24.5
+TB            19.3      20.8          21.5
+LAC           27.55                   24.5
 
 December 11, 2024- Thanks to Seattle, I only got 10 of the 13 games right in Week 15. The formula's accuracy was dragged down to 82%, so I'm glad it favours the Seahawks this week. I will definitely lookinbe g for last minute injury updates for the Panthers-Cowboys and Packers-Seahawks games. 
 
@@ -707,4 +707,4 @@ NO   7
 Cha  6.5
 Was  6.5
 
-December 13, 2024- I'm thinking about adding a momentum variable at the end of the formula that takes into account the teams' performances in the last three games. It would be equal to +-3.
+December 13, 2024- I'm thinking about adding a momentum variable at the end of the formula that takes into account the teams' performances in the last three games. It would be equal to +-3. I have included my predictions taking momentum into account in the column to the right of my actual predictions to see if it helps with accuracy.
