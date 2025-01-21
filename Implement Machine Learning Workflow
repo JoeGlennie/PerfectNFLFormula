@@ -593,7 +593,7 @@ Min           28.5                25.5                                      42
 Car           13.4                15.5                                      16
 Phi           34                   30                                       22
 
-Jac           23.15               18.5                                      10
+Jac           23.15               18.5                                      10*
 Ten           24.75                21                                        6
 
 LV            22.6  or  21.1      19.5                                      13
@@ -605,14 +605,14 @@ NYG           19.7   or 17.7       19                                       11
 NYJ           16.15               19.5                                      26
 Mia           27.05                26                                       32
 
-Sea           21.95  or 19.95     21.25                                     30
+Sea           21.95  or 19.95     21.25                                     30*
 Ari           24.3                23.75                                     18
 
 LAC           15.8                19.5                                      17
 KC            22.3                23.5                                      19
 
 Buf           27.55                27                                       42   
-LAR           22.5                22.5                                      44
+LAR           22.5                22.5                                      44*
 
 Chi           22.42  or 20.42      20                                       13
 SF            24.55                24                                       38
@@ -648,7 +648,7 @@ Jac          21.25    20.75           18.75                                     
 Was          27.13    25.13            25.5                                      20
 NO           16.25                      18                                       19
 
-Buf           24.77                    26.75                                     48
+Buf           24.77                    26.75                                     48*
 Det           27.9    26.9             28.25                                     42
 
 Ind           16.75   15.75            19.5                                      13
@@ -666,7 +666,7 @@ Min           26.05     25.05          25.25                                    
 Atl           28.2      27.2           23.5                                      15
 LV            23.7      23.7            21                                        9
 
-Dal           26.15     27.15          21.25                                     30
+Dal           26.15     27.15          21.25                                     30*
 Car           27.65     28.65          22.25                                     14 
 
 Cin           29.9                    25.5                                       37 
@@ -675,44 +675,24 @@ Ten           24.4      23.4           21                                       
 KC            29.8      27.8          24.5                                       21
 Cle           18.05                   20.5                                        7
 
-GB            22.75     23.75           23                                       30
+GB            22.75     23.75           23                                       30*
 Sea           22.95     24.95           23                                       14
 
-TB            19.3      20.8          21.5                                       40
+TB            19.3      20.8          21.5                                       40*
 LAC           26.55                   24.5                                       17
 
 December 11, 2024- Thanks to Seattle, I only got 10 of the 13 games right in Week 15. The formula's accuracy was dragged down to 82%, so I'm glad it favours the Seahawks this week. I will definitely lookinbe g for last minute injury updates for the Panthers-Cowboys and Packers-Seahawks games. 
 
 December 12, 2024- The only way I'll ever be able to generate a full income with the formula is by picking basketball games, so I'm going to save my coach ratings here.
 
-GSW  9.5
-Mia  9
-Bos  9
-Den  9
-Orl  8.5
-Mem  8.5
-OKC  8.5
-Dal  8.5
-LAL  8.5
-Phi  8.5
-Cle  8.25
-Brk  8.25
-LAC  8.25
-Hou  8
-Mil  8
-Sac  7.5
-Pho  7.5
-Tor  7
-NO   7
-Cha  6.5
-Was  6.5
+
 
 December 13, 2024- I'm thinking about adding a momentum variable at the end of the formula that takes into account the teams' performances in the last three games. It would be equal to +-3. I have included my predictions taking momentum into account in the column to the right of my actual predictions to see if it helps with accuracy.
 
 December 21, 2024
 
-Den    18.8    27       Pit      20    17      Ari     30   30     Cle   24     6      LAR       29    19     Phi      27     33     Ten      21    30       SF       20     17
-LAC    19.15   34        Bal     24    34      Car     21   36     Cin   33    24       NYJ      23    9      Was      19     36     Ind      26    38       Mia      24     29
+Den    18.8    27       Pit      20    17      Ari     30*   30     Cle   24     6      LAR       29    19     Phi      27*     33     Ten      21    30       SF       20     17
+LAC    19.15   34        Bal     24    34      Car     21    36     Cin   33    24       NYJ      23    9      Was      19      36     Ind      26    38       Mia      24     29
  
-TB       31    24   Hou    17    19      NYG   19    7     Det   27     34     NE     15        Min    25    27      Jac    24    14    NO      12     0
-Dal      26    26   KC     22    27      Atl   26   34     Chi   17     17     Buf     34       Sea    17    24      LV     22    19    GB      27    34
+TB       31*    24   Hou    17    19      NYG   19    7     Det   27     34     NE     15        Min    25    27      Jac    24    14*    NO      12     0
+Dal      26     26   KC     22    27      Atl   26   34     Chi   17     17     Buf     34       Sea    17    24      LV     22    19     GB      27    34
