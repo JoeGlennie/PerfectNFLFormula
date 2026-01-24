@@ -722,3 +722,11 @@ NYR  = 3.73
 
 actual_Nas = 0 
 actual_NYR = 4
+
+January 24, 2026
+
+My accuracy dropped to 65% this NFL season. I think I put too much emphasis on injuries and momentum. 
+
+Using average points scored per game did not work well. Next season, I will switch back to to using the NFL Elo model's predictions as the starting point. 
+
+
